@@ -1,0 +1,42 @@
+#Create a class Catalogue. The __init__ method should accept the name of the catalogue (string).
+#Each catalogue should also have an attribute called products, an empty list. The class should also have three more methods:
+#•	add_product(product_name: str) - adds the product to the products' list
+#•	get_by_letter(first_letter: str) - returns a list containing only the products that start with the given letter
+#•	__repr__ - returns the catalogue info in the following format:
+#"Items in the {name} catalogue:
+#{item1}
+#{item2}
+#{itemN}"
+#The items should be sorted alphabetically in ascending order.
+
+class Catalogue:
+    def __init__(self, name):
+        self.name = name
+        self.products = []
+
+    def add_product(self, product : str):
+        self.products.append(product)
+
+    def get_by_letter(self, first_letter : str):
+        products_ = []
+        for product in self.products:
+            if product[0] == first_letter:
+                products_.append(product)
+        return products_
+    def __repr__(self):
+        sorted_products = sorted(self.products)
+        print("Items in the Furniture catalogue:")
+        for product in sorted_products:
+             print(product)
+
+catalogue = Catalogue("Furniture")
+catalogue.add_product("Sofa")
+catalogue.add_product("Mirror")
+catalogue.add_product("Desk")
+catalogue.add_product("Chair")
+catalogue.add_product("Carpet")
+print(catalogue.get_by_letter("C"))
+catalogue.__repr__()
+
+
+
